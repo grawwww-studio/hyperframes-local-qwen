@@ -1,0 +1,10 @@
+{
+ "B1": {
+  "source": "hint-B1.html",
+  "sentence": "At the end of the clip a solid yellow block covers the first two letters of the word REAL, so it reads \"AL\"; the word REAL must stay fully readable with the yellow marker band behind it."
+ },
+ "B3": {
+  "source": "hint-B3.html",
+  "sentence": "The value numbers (42, 58, 51, 23) are drawn on top of the ends of the bars and overlap them; put each number just to the right of its bar end, clear of the bar."
+ }
+}

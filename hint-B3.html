@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=1920, height=1080" />
+<title>Render time per card</title>
+<link rel="stylesheet" href="lib/gw.css" />
+<script src="vendor/gsap.min.js"></script>
+</head>
+<body>
+<div id="root" data-composition-id="main" data-start="0" data-duration="8" data-width="1920" data-height="1080">
+  <div class="a m" id="eyebrow" style="left:140px;top:130px;font-size:24px;color:var(--c);opacity:0">Render time / per card</div>
+  <div class="a h" id="title" style="left:140px;top:172px;font-size:82px;opacity:0">Render time per card <span style="font-size:44px;color:var(--ink)">(s)</span></div>
+  <div class="a" id="rule" style="left:140px;top:292px;width:1640px;height:6px;background:var(--c);transform-origin:left center"></div>
+
+  <div class="a m" id="axis" style="left:140px;top:360px;font-size:20px;color:var(--ink);opacity:0">Render time (s) &nbsp;&middot;&nbsp; scale 0&ndash;60</div>
+
+  <!-- Row 1: Title 42 -->
+  <div class="a m" id="l1" style="left:140px;top:430px;width:240px;font-size:28px;opacity:0">Title</div>
+  <div class="a" id="b1" style="left:420px;top:444px;width:0px;height:44px;background:var(--c)"></div>
+  <div class="a h" id="v1" style="left:1136px;top:430px;font-size:44px;opacity:0">42</div>
+
+  <!-- Row 2: Explainer 58 -->
+  <div class="a m" id="l2" style="left:140px;top:550px;width:240px;font-size:28px;opacity:0">Explainer</div>
+  <div class="a" id="b2" style="left:420px;top:564px;width:0px;height:44px;background:var(--c)"></div>
+  <div class="a" id="band2" style="left:1334px;top:548px;width:112px;height:54px;background:var(--y);transform-origin:left center"></div>
+  <div class="a h" id="v2" style="left:1352px;top:550px;font-size:44px;color:#111;opacity:0">58</div>
+
+  <!-- Row 3: Chart 51 -->
+  <div class="a m" id="l3" style="left:140px;top:670px;width:240px;font-size:28px;opacity:0">Chart</div>
+  <div class="a" id="b3" style="left:420px;top:684px;width:0px;height:44px;background:var(--c)"></div>
+  <div class="a h" id="v3" style="left:1202px;top:670px;font-size:44px;opacity:0">51</div>
+
+  <!-- Row 4: Lower third 23 -->
+  <div class="a m" id="l4" style="left:140px;top:790px;width:240px;font-size:28px;opacity:0">Lower third</div>
+  <div class="a" id="b4" style="left:420px;top:804px;width:0px;height:44px;background:var(--c)"></div>
+  <div class="a h" id="v4" style="left:762px;top:790px;font-size:44px;opacity:0">23</div>
+
+  <div class="a m" id="foot" style="left:140px;top:940px;font-size:20px;color:var(--ink);opacity:0">Render time per card (s) &nbsp;&middot;&nbsp; 4 cards &nbsp;&middot;&nbsp; peak 58s</div>
+</div>
+<script>
+  window.__timelines = window.__timelines || {};
+  const tl = gsap.timeline({ paused: true });
+
+  tl.to("#eyebrow", { opacity: 1, duration: 0.4 }, 0.2);
+  tl.fromTo("#title", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" }, 0.4);
+  tl.fromTo("#rule", { scaleX: 0 }, { scaleX: 1, duration: 0.7, ease: "power2.inOut" }, 0.8);
+  tl.to("#axis", { opacity: 1, duration: 0.4 }, 1.0);
+
+  // Row 1
+  tl.to("#l1", { opacity: 1, duration: 0.3 }, 1.2);
+  tl.fromTo("#b1", { width: 0 }, { width: 714, duration: 0.9, ease: "power2.out" }, 1.2);
+  tl.fromTo("#v1", { opacity: 0, x: -18 }, { opacity: 1, x: 0, duration: 0.4, ease: "power1.out" }, 1.9);
+
+  // Row 2 (largest)
+  tl.to("#l2", { opacity: 1, duration: 0.3 }, 1.45);
+  tl.fromTo("#b2", { width: 0 }, { width: 980, duration: 0.9, ease: "power2.out" }, 1.45);
+  tl.fromTo("#band2", { scaleX: 0 }, { scaleX: 1, duration: 0.4, ease: "power2.out" }, 2.15);
+  tl.fromTo("#v2", { opacity: 0, x: -18 }, { opacity: 1, x: 0, duration: 0.4, ease: "power1.out" }, 2.2);
+
+  // Row 3
+  tl.to("#l3", { opacity: 1, duration: 0.3 }, 1.7);
+  tl.fromTo("#b3", { width: 0 }, { width: 868, duration: 0.9, ease: "power2.out" }, 1.7);
+  tl.fromTo("#v3", { opacity: 0, x: -18 }, { opacity: 1, x: 0, duration: 0.4, ease: "power1.out" }, 2.4);
+
+  // Row 4
+  tl.to("#l4", { opacity: 1, duration: 0.3 }, 1.95);
+  tl.fromTo("#b4", { width: 0 }, { width: 391, duration: 0.9, ease: "power2.out" }, 1.95);
+  tl.fromTo("#v4", { opacity: 0, x: -18 }, { opacity: 1, x: 0, duration: 0.4, ease: "power1.out" }, 2.65);
+
+  tl.to("#foot", { opacity: 1, duration: 0.5 }, 3.0);
+
+  window.__timelines["main"] = tl;
+</script>
+</body>
+</html>

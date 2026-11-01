@@ -1,0 +1,11 @@
+@font-face{font-family:"Anybody";font-weight:100 900;font-stretch:50% 150%;font-display:block;src:url("../fonts/anybody-latin-wdth-normal.woff2") format("woff2")}
+@font-face{font-family:"Schibsted Grotesk";font-weight:400 900;font-display:block;src:url("../fonts/schibsted-grotesk-latin-wght-normal.woff2") format("woff2")}
+@font-face{font-family:"Spline Sans Mono";font-weight:300 700;font-display:block;src:url("../fonts/spline-sans-mono-latin-wght-normal.woff2") format("woff2")}
+:root{--paper:#0E0E0E;--ink:#F4F4F1;--c:#12A9E6;--m:#FF2D92;--y:#FFD400;--slug:#8E8E8A;--board:#222220;--muted:#C4C4C0;--display:"Anybody",sans-serif;--body:"Schibsted Grotesk",sans-serif;--mono:"Spline Sans Mono",monospace}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1920px;height:1080px;overflow:hidden;background:var(--paper);color:var(--ink)}
+body{font:500 30px/1.35 var(--body)}
+.a{position:absolute}
+.h{font-family:var(--display);font-weight:900;font-stretch:118%;text-transform:uppercase;line-height:.95;letter-spacing:-.01em}
+.m{font-family:var(--mono);font-weight:500;text-transform:uppercase;letter-spacing:.05em}
+.hl{display:inline-block;background:var(--y);padding:0 .12em;color:#111}

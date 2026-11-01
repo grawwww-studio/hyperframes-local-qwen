@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=1920, height=1080" />
+<title>Local AI, Real Video</title>
+<link rel="stylesheet" href="lib/gw.css" />
+<script src="vendor/gsap.min.js"></script>
+</head>
+<body>
+<div id="root" data-composition-id="main" data-start="0" data-duration="5" data-width="1920" data-height="1080">
+  <div class="a m" id="eyebrow" style="left:160px;top:300px;font-size:26px;letter-spacing:4px;color:var(--c);opacity:0">EP05 / Experiment</div>
+  <div class="a h" id="line1" style="left:160px;top:360px;font-size:150px;opacity:0">Local AI,</div>
+  <div class="a h" id="line2" style="left:160px;top:520px;font-size:150px;opacity:0">Real <span class="hl" id="hl">Video</span></div>
+  <div class="a" id="band" style="left:160px;top:520px;width:250px;height:150px;background:var(--y);transform-origin:left center;opacity:0"></div>
+  <div class="a" id="rule" style="left:160px;top:720px;width:1120px;height:6px;background:var(--m);transform-origin:left center"></div>
+</div>
+<script>
+  window.__timelines = window.__timelines || {};
+  const tl = gsap.timeline({ paused: true });
+
+  // eyebrow
+  tl.to("#eyebrow", { opacity: 1, duration: 0.4 }, 0.2);
+
+  // line 1 slides in
+  tl.fromTo("#line1", { opacity: 0, x: -60 }, { opacity: 1, x: 0, duration: 0.5, ease: "power3.out" }, 0.5);
+
+  // line 2 slides in (word "Real" + "Video")
+  tl.fromTo("#line2", { opacity: 0, x: -60 }, { opacity: 1, x: 0, duration: 0.5, ease: "power3.out" }, 0.9);
+
+  // yellow marker band wipes in from the left behind "Real"
+  tl.fromTo("#band", { opacity: 1, scaleX: 0 }, { opacity: 1, scaleX: 1, duration: 0.5, ease: "power2.inOut" }, 1.5);
+
+  // thin rule draws across below
+  tl.fromTo("#rule", { scaleX: 0 }, { scaleX: 1, duration: 0.8, ease: "power2.inOut" }, 2.1);
+
+  window.__timelines["main"] = tl;
+</script>
+</body>
+</html>

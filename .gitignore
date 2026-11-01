@@ -1,0 +1,10 @@
+# Output of ./run.sh and runner.py, the model file and the assets you add yourself (see README, "Set it up"). Nothing here belongs in a commit.
+runs/
+runs_*/
+hint_s*/
+llama-server.log
+tpl/
+*.gguf
+*.mp4
+*.png
+__pycache__/
