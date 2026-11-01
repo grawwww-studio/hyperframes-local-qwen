@@ -2,7 +2,7 @@
 
 The system prompt, the loop script, the five briefs and the two reviewer sentences from the video "HyperFrames with a local Qwen 3.8 27B: 9 of 20 Runs Passed (Thinking Off)".
 
-- Video: VIDEO_URL_SLOT
+- Video: https://youtu.be/7q2zJmK-Tkg
 - Write-up with the results table and the setup notes: https://grawwww.xyz/en/teams/hyperframes-local-qwen/
 
 Everything we used for the Qwen runs, except the model, the logo and icon, the fonts and GSAP (not shared here; see `NOTICE.md`).
